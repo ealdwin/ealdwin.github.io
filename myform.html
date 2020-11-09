@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Tugas JQuery Two Field</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    .container{
+        border-radius: 20px;
+        padding: 90px;
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .error {
+        color: red;
+    }
+    .jumbotron {
+        background-image: url("https://images.pexels.com/photos/4173624/pexels-photo-4173624.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+    }
+  </style>
+  <script>
+    $(document).ready(function() {
+         $('.error').hide();
+         $('.submit').click(function(event){
+             $('.infobox').each(function(){
+                 var data=$(this).val();
+                 var len=data.length;
+                     if(len<1){
+                         $(this).parent().find('.error').show();
+                     }
+                     else{
+                         $(this).parent().find('.error').hide();
+                     }
+                 });
+              event.preventDefault();
+         });
+     }); 
+ </script>
+</head>
+
+<body>
+    <form>
+        <div class ="container d-flex h-100">
+            <div class="row align-self-center w-100">
+                <div class="col-8 mx-auto">
+                    <div class="jumbotron bg-dark">
+                        <div class ="card">
+                            <div class="card-body">
+                                <h1 class="text-center text-dark">Login Page</h1>
+                                    <div class="form-group">
+                                        <label for="username">Username</label>
+                                        <input type="text" class="infobox form-control" placeholder="username" name="username">
+                                        <span class="error"> This field cannot be blank</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password">Password</label>
+                                        <input type="password" class="infobox form-control" placeholder="password" name="pass">
+                                        <span class="error"> This field cannot be blank</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary btn-block submit"> Login </button>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+            </div>        
+        </div>
+    </form>    
+</body>
+</html>
