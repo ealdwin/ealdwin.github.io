@@ -23,21 +23,21 @@
         background-image: url("https://images.pexels.com/photos/4173624/pexels-photo-4173624.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
     }
   </style>
-  <script>
+  <script> //script jika ada kekosongan saat mengisi login page
     $(document).ready(function() {
-         $('.error').hide();
-         $('.submit').click(function(event){
-             $('.infobox').each(function(){
-                 var data=$(this).val();
-                 var len=data.length;
-                     if(len<1){
-                         $(this).parent().find('.error').show();
+         $('.error').hide(); //menyembunyikan error message pada tampilan awal
+         $('.submit').click(function(event){ //memanggil event error jika pada saat disubmit page tidak diisi
+             $('.infobox').each(function(){ //menentukan event yang akan ditampilkan menurut data yang diisi di login page
+                 var data=$(this).val(); //mengecek pengisian variabel data
+                 var len=data.length; //mengecek panjang variabel data yang diisi 
+                     if(len<1){ //fungsi if untuk mengecek panjang variabel data
+                         $(this).parent().find('.error').show(); //memanggil error message karena syarat pemenuhan variabel data tidak terpenuhi
                      }
                      else{
-                         $(this).parent().find('.error').hide();
+                         $(this).parent().find('.error').hide(); //tetap menyembunyikan error message ketika syarat dipenuhi yaitu lebih dari satu variabel data
                      }
                  });
-              event.preventDefault();
+              event.preventDefault(); //untuk mengcancel event jika event memang dapat dicancel yang artinya default action yang dimiliki event tidak dijalankan
          });
      }); 
  </script>
